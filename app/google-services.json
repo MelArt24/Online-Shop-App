@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "920002528148",
+    "project_id": "online-shop-app-from-yt",
+    "storage_bucket": "online-shop-app-from-yt.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:920002528148:android:ee002eb17ef7cbe31ac581",
+        "android_client_info": {
+          "package_name": "com.am24.onlineshopapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCiuWIz_XnjazYHYeiFChnMj6aE6p9ExWg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
