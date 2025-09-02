@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.am24.onlineshopapp.Model.BrandModel
+import com.am24.onlineshopapp.Model.ItemModel
 import com.am24.onlineshopapp.Model.SliderModel
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -16,8 +17,10 @@ class MainViewModel() : ViewModel() {
 
     private val _banner = MutableLiveData<List<SliderModel>>()
     private val _brand = MutableLiveData<MutableList<BrandModel>>()
+    private val _popular = MutableLiveData<MutableList<ItemModel>>()
 
     val brands: LiveData<MutableList<BrandModel>> = _brand
+    val popular: LiveData<MutableList<ItemModel>> = _popular
     val banners: LiveData<List<SliderModel>> = _banner
 
     fun loadBanners(){
@@ -55,6 +58,28 @@ class MainViewModel() : ViewModel() {
                 }
 
                 _brand.value  = lists
+            }
+
+            override fun onCancelled(p0: DatabaseError) {
+                TODO("Not yet implemented")
+            }
+
+        })
+    }
+
+    fun loadPopular(){
+        val Ref = firebaseDatabase.getReference("Items")
+        Ref.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(p0: DataSnapshot) {
+                val lists = mutableListOf<ItemModel>()
+                for(childSnapshot in p0.children) {
+                    val list = childSnapshot.getValue(ItemModel::class.java)
+                    if(list != null) {
+                        lists.add(list)
+                    }
+                }
+
+                _popular.value  = lists
             }
 
             override fun onCancelled(p0: DatabaseError) {

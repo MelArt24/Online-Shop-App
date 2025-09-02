@@ -3,11 +3,13 @@ package com.am24.onlineshopapp.activity
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
 import com.am24.onlineshopapp.Adapter.BrandAdapter
+import com.am24.onlineshopapp.Adapter.PopularAdapter
 import com.am24.onlineshopapp.Model.SliderModel
 import com.am24.onlineshopapp.Adapter.SliderAdapter
 import com.am24.onlineshopapp.ViewModel.MainViewModel
@@ -24,6 +26,7 @@ class MainActivity : BaseActivity() {
 
         initBanner()
         initBrand()
+        initPopular()
     }
 
     private fun initBanner() {
@@ -63,5 +66,17 @@ class MainActivity : BaseActivity() {
         })
 
         viewmodel.loadBrand()
+    }
+
+
+    private fun initPopular() {
+        binding.progressBarPopular.visibility = View.VISIBLE
+        viewmodel.popular.observe(this, Observer {
+            binding.viewPopular.layoutManager = GridLayoutManager(this@MainActivity, 2)
+            binding.viewPopular.adapter = PopularAdapter(it)
+            binding.progressBarPopular.visibility = View.GONE
+        })
+
+        viewmodel.loadPopular()
     }
 }
