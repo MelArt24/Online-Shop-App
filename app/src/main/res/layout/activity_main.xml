@@ -257,6 +257,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/cartBtn"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
@@ -275,7 +276,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
-                        android:text="Explorer"
+                        android:text="Cart"
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textSize="10sp" />
@@ -300,7 +301,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
-                        android:text="Explorer"
+                        android:text="WishList"
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textSize="10sp" />
@@ -325,7 +326,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
-                        android:text="Explorer"
+                        android:text="My Order"
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textSize="10sp" />
@@ -350,7 +351,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
-                        android:text="Explorer"
+                        android:text="Profile"
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textSize="10sp" />
